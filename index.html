@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ALCIVIA Academy | Agenda Builder</title>
+<style>
+:root{--green:#2f6d3d;--green2:#4c8b52;--deep:#163f24;--lime:#aec95b;--cream:#f6f3e9;--paper:#fffdf8;--ink:#1f2a22;--muted:#667269;--line:#d9e1d8;--gold:#d0a64b;--red:#a65345;--soft:#e9f3e7;--shadow:0 18px 45px rgba(31,60,37,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:hidden}body{margin:0;background:#edf1eb;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}button,input,textarea,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid rgba(174,201,91,.72);outline-offset:2px}.shell{max-width:1180px;margin:0 auto;background:var(--cream);box-shadow:var(--shadow);min-height:0;overflow:hidden}.topbar{position:sticky;top:0;z-index:30;display:flex;gap:18px;align-items:center;padding:12px 22px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.brand{display:flex;align-items:center;gap:10px;min-width:210px;font-weight:900;letter-spacing:.06em;color:var(--deep)}.mark{width:32px;height:32px;border-radius:9px;background:var(--green);color:white;display:grid;place-items:center;font-weight:900;transform:rotate(45deg)}.mark span{transform:rotate(-45deg)}.progresswrap{flex:1;min-width:0}.plabel{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--muted);margin-bottom:5px}.pbar{height:8px;border-radius:999px;background:#e7ebe5;overflow:hidden}.pbar>div{height:100%;width:12%;background:linear-gradient(90deg,var(--green),var(--lime));transition:width .3s}.hero{padding:68px 64px 58px;color:white;background:radial-gradient(circle at 90% 16%,rgba(174,201,91,.22),transparent 25%),linear-gradient(135deg,var(--deep),var(--green) 66%,#477f49);position:relative;overflow:hidden}.hero:after{content:"✓";position:absolute;right:26px;bottom:-90px;font-size:300px;font-weight:900;color:rgba(255,255,255,.05)}.eyebrow{display:inline-flex;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.1);font-size:12px;letter-spacing:.11em;text-transform:uppercase}.hero h1{font-size:clamp(42px,6vw,70px);line-height:.98;letter-spacing:-.05em;max-width:850px;margin:20px 0 16px}.hero p{font-size:19px;line-height:1.6;max-width:760px;color:rgba(255,255,255,.88)}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.btn{min-height:46px;border:0;border-radius:12px;padding:12px 18px;font-weight:850;transition:.15s}.btn:hover{transform:translateY(-1px)}.primary{background:var(--lime);color:#17341c}.light{background:white;color:var(--deep)}.ghost{background:transparent;color:var(--deep);border:1px solid var(--line)}.danger{background:#fff4f1;color:#7f3025;border:1px solid #ecd3ce}.mini{min-height:38px;padding:8px 11px;font-size:12px;border-radius:9px}.section{padding:54px 64px;border-bottom:1px solid var(--line)}.section-head{display:grid;grid-template-columns:210px 1fr;gap:30px;align-items:start}.side .kicker,.kicker{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.13em;color:var(--green)}.side h2{font-size:28px;line-height:1.05;margin:8px 0 10px}.side p{font-size:14px;line-height:1.55;color:var(--muted)}.main h3{font-size:34px;letter-spacing:-.035em;margin:0 0 10px}.lede{font-size:17px;line-height:1.65;color:#4e5b51;max-width:800px}.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:22px;margin-top:20px;box-shadow:0 8px 28px rgba(31,60,37,.05);min-width:0}.lesson-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:20px}.lesson-card{background:white;border:1px solid var(--line);border-radius:16px;padding:16px}.lesson-card strong{display:block;color:var(--deep);margin:6px 0}.lesson-card span{font-size:12px;color:var(--muted);line-height:1.45}.challenge{display:grid;gap:10px;margin-top:18px}.challenge button{text-align:left;border:1px solid var(--line);background:white;border-radius:14px;padding:15px;color:var(--ink)}.challenge button.selected{border-color:var(--green);background:var(--soft)}.challenge-feedback{min-height:46px;margin-top:10px;padding:13px;border-radius:12px;background:#f2f6ef;color:var(--deep)}.builder-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:22px;align-items:start}.workspace{min-width:0}.summary{position:sticky;top:82px;background:white;border:1px solid var(--line);border-radius:18px;padding:18px}.summary h4{margin:0 0 12px}.summary-metric{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #eef0ec}.summary-metric:last-child{border:0}.summary strong{color:var(--deep)}.time-alert{margin-top:14px;padding:13px;border-radius:12px;font-size:13px;line-height:1.45}.time-alert.over{background:#fff1ed;color:#7f3025;border:1px solid #efd3cb}.time-alert.under{background:#fff8e9;color:#725314;border:1px solid #eadbae}.time-alert.fit{background:#eef7ec;color:#285f37;border:1px solid #cfe0cd}.time-alert.unknown{background:#f4f5f2;color:var(--muted);border:1px solid var(--line)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:grid;gap:6px;min-width:0}.field.full{grid-column:1/-1}label{font-weight:800;font-size:13px;color:var(--deep)}input,textarea,select{width:100%;min-height:44px;border:1px solid #cfd8cf;border-radius:11px;background:white;color:var(--ink);padding:10px 12px;min-width:0}textarea{min-height:92px;resize:vertical;line-height:1.5}.helper{font-size:12px;color:var(--muted);line-height:1.45}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;color:var(--deep);font-weight:750;font-size:12px}.chip.active{background:var(--soft);border-color:var(--green);color:var(--deep)}.outcome-row{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:8px}.item-list{display:grid;gap:12px;margin-top:14px}.agenda-item{border:1px solid var(--line);background:#fff;border-radius:16px;padding:16px}.item-top{display:grid;grid-template-columns:1.5fr .7fr .8fr 95px;gap:10px}.item-notes{margin-top:10px}.item-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.close-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.check{display:flex;align-items:center;gap:9px;padding:11px;background:white;border:1px solid var(--line);border-radius:12px}.check input{width:18px;min-height:18px}.coach-grid{display:grid;gap:10px}.coach-item{padding:14px;border-radius:14px;border:1px solid var(--line);background:white}.coach-item strong{display:block;margin-bottom:4px}.coach-item.good{background:#eef7ec;border-color:#cfe0cd}.coach-item.attention,.coach-item.over{background:#fff1ed;border-color:#efd3cb}.preview-wrap{background:#eef2ec;padding:26px;border-radius:22px}.agenda-paper{max-width:860px;margin:0 auto;background:white;border:1px solid #d9dfd8;box-shadow:0 10px 30px rgba(31,60,37,.08);padding:38px;overflow-wrap:anywhere}.preview-brand{font-size:11px;letter-spacing:.14em;font-weight:900;color:var(--green);text-transform:uppercase}.agenda-paper h2{font-size:34px;letter-spacing:-.03em;margin:7px 0 8px;color:var(--deep)}.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:13px;padding-bottom:18px;border-bottom:1px solid var(--line)}.preview-section{margin-top:22px}.preview-section h3{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin:0 0 9px}.preview-section p,.preview-section li{line-height:1.55}.agenda-table{display:grid;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}.agenda-row{display:grid;grid-template-columns:130px 90px minmax(0,1fr) 140px;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line);align-items:start;overflow-wrap:anywhere}.agenda-row:last-child{border-bottom:0}.agenda-row.head{background:#f2f6ef;font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--deep)}.empty{color:var(--muted);font-style:italic}.preview-actions{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:18px}.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:22px;background:rgba(13,35,20,.55)}.modal[hidden]{display:none}.modal-card{width:min(680px,100%);max-height:85vh;overflow:auto;background:white;border-radius:20px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.25)}.modal-card textarea{min-height:280px}.toast{position:fixed;right:18px;bottom:18px;z-index:120;background:var(--deep);color:white;border-radius:11px;padding:12px 15px;display:none}.toast.show{display:block}.hide{display:none!important}@media(max-width:960px){.section{padding:40px 28px}.section-head{display:block}.side{margin-bottom:20px}.builder-grid{grid-template-columns:1fr}.summary{position:static}.lesson-grid{grid-template-columns:1fr 1fr}.item-top{grid-template-columns:1fr 1fr}}@media(max-width:600px){.topbar{padding:10px 12px}.brand{min-width:auto}.brandtext{display:none}.hero{padding:46px 20px}.section{padding:34px 20px}.form-grid,.close-grid,.lesson-grid,.item-top{grid-template-columns:1fr}.agenda-paper{padding:22px}.agenda-row{grid-template-columns:1fr;gap:4px}.agenda-row.head{display:none}.agenda-row>div:before{content:attr(data-label);display:block;font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}.actions,.preview-actions{align-items:stretch}.actions .btn,.preview-actions .btn{flex:1 1 100%}}@media(max-width:320px){.hero,.section{padding-left:14px;padding-right:14px}.card{padding:15px}}
+
+@media print{
+  @page{size:letter;margin:.55in}
+  body{background:#fff!important;color:#111!important}
+  .topbar{display:none!important}
+  .hero{display:none!important}
+  #learn{display:none!important}
+  #builder{display:none!important}
+  #coachSection{display:none!important}
+  .preview-actions{display:none!important}
+  .side{display:none!important}
+  .section{padding:0!important;border:0!important}
+  .section-head{display:block!important}
+  .preview-wrap{background:#fff!important;padding:0!important}
+  .agenda-paper{max-width:none!important;border:0!important;box-shadow:none!important;padding:0!important}
+  .agenda-row{break-inside:avoid;page-break-inside:avoid}
+  .modal,.toast,#emailWarning{display:none!important}
+}
+</style>
+</head>
+<body>
+<div class="shell" id="app">
+  <div class="topbar">
+    <div class="brand"><div class="mark"><span>A</span></div><span class="brandtext">ALCIVIA ACADEMY</span></div>
+    <div class="progresswrap"><div class="plabel"><span>Agenda Builder</span><span id="progressText">Learn • Build • Send</span></div><div class="pbar"><div id="progressBar"></div></div></div><button class="btn ghost mini" type="button" id="fullscreenBtn" aria-label="Open Agenda Builder full screen">⛶ Full Screen</button>
+  </div>
+  <section class="hero" id="intro">
+    <div class="eyebrow">Meeting Effectiveness • Practical Tool</div>
+    <h1>Build a meeting people know how to use.</h1>
+    <p>A good agenda answers three questions before the meeting starts: <strong>Why are we here?</strong> <strong>What needs to happen?</strong> <strong>Who owns each part?</strong></p>
+    <div class="actions"><button class="btn primary" type="button" id="startBuild">Build My Agenda →</button><button class="btn light" type="button" id="teachFirst">Teach Me First</button></div>
+  </section>
+  <section class="section" id="learn">
+    <div class="section-head"><div class="side"><div class="kicker">01 • Learn it</div><h2>The five-part agenda</h2><p>Strong agendas are short, specific, and designed around outcomes—not just topics.</p></div><div class="main"><h3>What makes an agenda useful?</h3><p class="lede">Use this structure every time. You can skip the lesson once it becomes second nature.</p>
+      <div class="lesson-grid">
+        <div class="lesson-card"><div class="kicker">1</div><strong>Purpose</strong><span>Why does this meeting need to happen?</span></div>
+        <div class="lesson-card"><div class="kicker">2</div><strong>Outcomes</strong><span>What must be decided, understood, or assigned?</span></div>
+        <div class="lesson-card"><div class="kicker">3</div><strong>Topics</strong><span>What information, discussion, decisions, or work are needed?</span></div>
+        <div class="lesson-card"><div class="kicker">4</div><strong>Owner + Time</strong><span>Who leads each item, and how much time does it deserve?</span></div>
+        <div class="lesson-card"><div class="kicker">5</div><strong>Close</strong><span>Confirm decisions, actions, owners, and what happens next.</span></div>
+      </div>
+      <div class="card mini-challenge"><div class="kicker">Mini-challenge</div><h4>Which agenda item is strongest?</h4><div class="challenge" id="challenge">
+        <button type="button" data-choice="weak">Budget</button>
+        <button type="button" data-choice="better">Review the Q1 equipment request</button>
+        <button type="button" data-choice="strong">Decide whether to approve the Q1 equipment request — 10 min — Owner: Finance</button>
+      </div><div class="challenge-feedback" id="challengeFeedback" aria-live="polite">Choose the version that gives participants the clearest expectation.</div></div>
+    </div></div>
+  </section>
+  <section class="section" id="builder">
+    <div class="section-head"><div class="side"><div class="kicker">02 • Build it</div><h2>Your meeting</h2><p>Start with the basics, then build toward the decisions and work the meeting needs to accomplish.</p></div><div class="main builder-grid"><div class="workspace">
+      <div class="card"><h3>Meeting basics</h3><div class="form-grid">
+        <div class="field full"><label for="meetingTitle">Meeting title</label><input id="meetingTitle" placeholder="Weekly Team Meeting"></div>
+        <div class="field"><label for="meetingDate">Date</label><input id="meetingDate" type="date"></div><div class="field"><label for="meetingType">Meeting type</label><select id="meetingType"><option value="">Choose a starter</option><option>Team Check-In</option><option>Project Update</option><option>Decision Meeting</option><option>Planning Session</option><option>Customer / Partner Meeting</option><option>One-on-One</option><option>Custom</option></select></div><div class="field full"><span class="helper">Quick starters</span><div class="chips" id="meetingTypeChips"><button class="chip" type="button" data-meeting-type="Team Check-In">Team Check-In</button><button class="chip" type="button" data-meeting-type="Project Update">Project Update</button><button class="chip" type="button" data-meeting-type="Decision Meeting">Decision Meeting</button><button class="chip" type="button" data-meeting-type="Planning Session">Planning Session</button><button class="chip" type="button" data-meeting-type="Customer / Partner Meeting">Customer / Partner</button><button class="chip" type="button" data-meeting-type="One-on-One">One-on-One</button></div><div class="helper" id="meetingTypePrompt">Choose a starter for a helpful purpose prompt. You can rewrite everything.</div></div>
+        <div class="field"><label for="startTime">Start time</label><input id="startTime" type="time" value="09:00"></div><div class="field"><label for="endTime">End time</label><input id="endTime" type="time" value="10:00"></div>
+        <div class="field full"><label for="location">Location / meeting link <span class="helper">(optional)</span></label><input id="location" placeholder="Conference room, Teams link, etc."></div>
+        <div class="field"><label for="facilitator">Meeting owner / facilitator</label><input id="facilitator" placeholder="Name"></div><div class="field"><label for="attendees">Attendees <span class="helper">(optional)</span></label><input id="attendees" placeholder="Team, names, or group"></div>
+      </div></div>
+      <div class="card"><div class="kicker">Purpose</div><h3>Why does this meeting need to happen?</h3><div class="field"><label for="purpose">One-sentence purpose</label><textarea id="purpose" placeholder="Example: Align the team on this week's priorities and resolve the two blockers affecting launch."></textarea></div><div class="chips" id="purposeChips"><button class="chip" type="button">Share information</button><button class="chip" type="button">Make a decision</button><button class="chip" type="button">Solve a problem</button><button class="chip" type="button">Plan work</button><button class="chip" type="button">Align a team</button><button class="chip" type="button">Review progress</button></div></div>
+      <div class="card"><div class="kicker">Outcomes</div><h3>By the end of this meeting, what should be decided, understood, or assigned?</h3><p class="helper">Add up to five concrete outcomes.</p><div id="outcomes"></div><button class="btn ghost mini" type="button" id="addOutcome">+ Add outcome</button></div>
+      <div class="card"><div class="kicker">Agenda items</div><h3>What needs to happen?</h3><p class="helper">Label each item by intent: Inform, Discuss, Decide, or Work.</p><div class="item-list" id="items"></div><button class="btn primary" type="button" id="addItem">+ Add agenda item</button></div>
+      <div class="card"><div class="kicker">Close</div><h3>Leave time to close the loop.</h3><div class="close-grid"><label class="check"><input id="closeDecisions" type="checkbox" checked> Confirm decisions made</label><label class="check"><input id="closeActions" type="checkbox" checked> Confirm action items + owners</label><label class="check"><input id="closeParking" type="checkbox" checked> Questions / parking lot</label><label class="check"><input id="closeNext" type="checkbox" checked> Confirm next checkpoint</label></div><div class="field" style="max-width:200px;margin-top:12px"><label for="closeMinutes">Reserved close time</label><input id="closeMinutes" type="number" min="1" value="5"></div></div>
+      <div class="actions"><button class="btn primary" type="button" id="previewAgenda">Preview My Agenda →</button></div>
+    </div>
+    <aside class="summary" aria-live="polite"><h4>Meeting plan</h4><div class="summary-metric"><span>Meeting length</span><strong id="durationMetric">60 min</strong></div><div class="summary-metric"><span>Agenda time</span><strong id="agendaMetric">5 min</strong></div><div class="summary-metric"><span>Agenda items</span><strong id="itemMetric">0</strong></div><div id="timeAlert" class="time-alert under">You have 55 minutes unassigned.</div></aside>
+    </div></div>
+  </section>
+  <section class="section" id="coachSection"><div class="section-head"><div class="side"><div class="kicker">03 • Coach it</div><h2>Agenda Coach</h2><p>Useful nudges, not a score. You decide what fits the meeting.</p></div><div class="main"><h3>What does your agenda communicate?</h3><div class="coach-grid" id="coach" aria-live="polite"></div></div></div></section>
+  <section class="section" id="preview"><div class="section-head"><div class="side"><div class="kicker">04 • Use it</div><h2>Finished agenda</h2><p>Review it, then print, copy, or open your email app with the agenda already prepared.</p></div><div class="main"><div class="preview-wrap"><article class="agenda-paper" id="agendaPaper"><div class="preview-brand">ALCIVIA Academy • Meeting Agenda</div><h2 id="previewTitle">Meeting Agenda</h2><div class="meta" id="previewMeta"></div><div class="preview-section"><h3>Purpose</h3><p id="previewPurpose" class="empty">Purpose not yet defined.</p></div><div class="preview-section"><h3>Outcomes</h3><ul id="previewOutcomes"><li class="empty">No outcomes added yet.</li></ul></div><div class="preview-section"><h3>Agenda</h3><div class="agenda-table" id="previewTable"></div></div><div class="preview-section"><h3>Close</h3><ul id="previewClose"></ul></div><footer class="helper" style="margin-top:28px;padding-top:14px;border-top:1px solid var(--line)">Built with the ALCIVIA Academy Agenda Builder.</footer></article></div><div class="preview-actions"><button class="btn primary" id="printAgenda" type="button">Print / Save PDF</button><button class="btn ghost" id="copyAgenda" type="button">Copy Agenda</button><button class="btn ghost" id="emailAgenda" type="button">Email Agenda</button><button class="btn ghost" id="editAgenda" type="button">Edit Agenda</button><button class="btn danger" id="newAgenda" type="button">Start New Agenda</button></div><div id="emailWarning" class="time-alert under hide" aria-live="polite">This agenda is long enough that some email apps may truncate it. Use Copy Agenda and paste it into a new email for the safest result.</div></div></div></section>
+</div>
+<div class="modal" id="copyFallback" hidden role="dialog" aria-modal="true" aria-labelledby="copyFallbackTitle"><div class="modal-card"><div class="kicker">Manual copy</div><h2 id="copyFallbackTitle">Copy your agenda</h2><p class="lede">Your browser blocked automatic clipboard access. The agenda is selected below—copy it manually, then paste it wherever you need it.</p><textarea aria-label="Agenda text for manual copy"></textarea><div class="actions"><button class="btn primary" type="button" id="closeCopyFallback">Close</button></div></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+/* CORE_START */
+
+(function(){
+  function parseMinutes(timeString){
+    if(typeof timeString!=='string'||!/^\d{2}:\d{2}$/.test(timeString)) return null;
+    const [h,m]=timeString.split(':').map(Number);
+    if(h<0||h>23||m<0||m>59) return null;
+    return h*60+m;
+  }
+  function meetingDuration(startTime,endTime){
+    const start=parseMinutes(startTime), end=parseMinutes(endTime);
+    if(start===null||end===null||end<start) return null;
+    return end-start;
+  }
+  function sanitizeMinutes(value){
+    const n=Number(value);
+    return Number.isFinite(n)&&n>=1?Math.round(n):1;
+  }
+  function agendaTotal(items,closeMinutes){
+    const itemTotal=(Array.isArray(items)?items:[]).reduce((sum,item)=>sum+sanitizeMinutes(item?.minutes),0);
+    return itemTotal+sanitizeMinutes(closeMinutes);
+  }
+  function timeStatus(total,duration){
+    if(duration===null||!Number.isFinite(duration)) return {kind:'unknown',difference:null,message:'Set a valid start and end time to compare your agenda.'};
+    const diff=Math.round(total-duration);
+    if(diff>0) return {kind:'over',difference:diff,message:`Your agenda is ${diff} minutes longer than the meeting.`};
+    if(diff<0) return {kind:'under',difference:Math.abs(diff),message:`You have ${Math.abs(diff)} minutes unassigned. Keep the buffer intentionally or add time where discussion is likely.`};
+    return {kind:'fit',difference:0,message:'Your agenda fits the planned meeting time.'};
+  }
+  let idCounter=0;
+  function nextId(){ idCounter+=1; return 'item-'+idCounter; }
+  function makeInitialState(){
+    return {
+      title:'',date:'',startTime:'09:00',endTime:'10:00',location:'',facilitator:'',attendees:'',meetingType:'',purpose:'',outcomes:[],items:[],
+      close:{decisions:true,actions:true,parkingLot:true,nextCheckpoint:true,minutes:5}
+    };
+  }
+  function addOutcome(state,text){ return {...state,outcomes:[...(state.outcomes||[]),String(text||'').trim()]}; }
+  function updateOutcome(state,index,text){ return {...state,outcomes:(state.outcomes||[]).map((x,i)=>i===index?String(text||'').trim():x)}; }
+  function deleteOutcome(state,index){ return {...state,outcomes:(state.outcomes||[]).filter((_,i)=>i!==index)}; }
+  function normalizeItem(input){
+    const validTypes=['Inform','Discuss','Decide','Work'];
+    return {id:input?.id||nextId(),title:String(input?.title||''),type:validTypes.includes(input?.type)?input.type:'Discuss',owner:String(input?.owner||''),minutes:sanitizeMinutes(input?.minutes),notes:String(input?.notes||'')};
+  }
+  function addItem(state,input){ const item=normalizeItem(input||{}); return {state:{...state,items:[...(state.items||[]),item]},id:item.id}; }
+  function updateItem(state,id,patch){ return {...state,items:(state.items||[]).map(item=>item.id===id?normalizeItem({...item,...patch,id:item.id}):item)}; }
+  function deleteItem(state,id){ return {...state,items:(state.items||[]).filter(item=>item.id!==id)}; }
+  function moveItem(state,id,direction){
+    const items=[...(state.items||[])], index=items.findIndex(x=>x.id===id);
+    if(index<0) return {...state,items};
+    const target=direction==='up'?index-1:direction==='down'?index+1:index;
+    if(target<0||target>=items.length||target===index) return {...state,items};
+    [items[index],items[target]]=[items[target],items[index]];
+    return {...state,items};
+  }
+  function duplicateItem(state,id){
+    const item=(state.items||[]).find(x=>x.id===id);
+    if(!item) return {state:{...state,items:[...(state.items||[])]},id:null};
+    const copy=normalizeItem({...item,id:null});
+    const index=state.items.findIndex(x=>x.id===id);
+    const items=[...state.items]; items.splice(index+1,0,copy);
+    return {state:{...state,items},id:copy.id};
+  }
+  function buildCoachFindings(state){
+    const findings=[];
+    const items=Array.isArray(state.items)?state.items:[];
+    if(!String(state.purpose||'').trim()) findings.push({kind:'nudge',title:'Clarify the purpose',body:'You have topics, but no clear meeting purpose yet.'});
+    if(!(state.outcomes||[]).some(x=>String(x).trim())) findings.push({kind:'nudge',title:'Name the outcome',body:'You have not named a meeting outcome yet. What should be decided, understood, or assigned by the end?'});
+    items.filter(x=>x.type==='Decide'&&!String(x.owner||'').trim()).forEach(x=>findings.push({kind:'attention',title:'Give the decision an owner',body:`“${x.title||'This item'}” is marked Decide but has no owner.`}));
+    const total=items.reduce((sum,x)=>sum+sanitizeMinutes(x.minutes),0);
+    const inform=items.filter(x=>x.type==='Inform').reduce((sum,x)=>sum+sanitizeMinutes(x.minutes),0);
+    if(total>0&&inform/total>0.5) findings.push({kind:'nudge',title:'Check the information load',body:'More than half of your meeting is information sharing. Could any of that be sent beforehand?'});
+    const hasAction=(state.outcomes||[]).some(x=>/decid|assign|agree|choose|approve|action|next step/i.test(String(x)))||items.some(x=>x.type==='Decide'||x.type==='Work');
+    if(!hasAction) findings.push({kind:'nudge',title:'Make the result explicit',body:'Your meeting has no explicit decision or action outcome. That can be intentional, but make sure it is.'});
+    const duration=meetingDuration(state.startTime,state.endTime);
+    if(duration!==null){ const status=timeStatus(agendaTotal(items,state.close?.minutes??5),duration); findings.push({kind:status.kind==='fit'?'good':status.kind,title:status.kind==='fit'?'Timing looks good':'Check the timing',body:status.message}); }
+    if((state.close?.minutes??0)>=5) findings.push({kind:'good',title:'Close the loop',body:'You reserved time to close with decisions, actions, owners, and next steps.'});
+    return findings;
+  }
+  function formatClock(total){
+    if(!Number.isFinite(total)) return '—';
+    const h=Math.floor(total/60)%24,m=total%60;
+    const hour=((h+11)%12)+1;
+    return `${hour}:${String(m).padStart(2,'0')}`;
+  }
+  function buildAgendaRows(state){
+    let cursor=parseMinutes(state.startTime);
+    if(cursor===null) cursor=0;
+    return (state.items||[]).map(item=>{
+      const mins=sanitizeMinutes(item.minutes), start=cursor, end=cursor+mins; cursor=end;
+      return {time:`${formatClock(start)}–${formatClock(end)}`,type:item.type||'Discuss',title:item.title||'Untitled agenda item',owner:item.owner||'—',minutes:mins,notes:item.notes||''};
+    });
+  }
+  function dateLabel(value){
+    if(!value) return 'Date not set';
+    const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(value); if(!m) return value;
+    const d=new Date(Date.UTC(+m[1],+m[2]-1,+m[3]));
+    return new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'UTC'}).format(d);
+  }
+  function buildPlainTextAgenda(state){
+    const rows=buildAgendaRows(state);
+    const lines=[];
+    lines.push(state.title||'Meeting Agenda');
+    lines.push(`${dateLabel(state.date)} | ${state.startTime||'Time not set'}${state.endTime?'–'+state.endTime:''}${state.location?' | '+state.location:''}`);
+    if(state.facilitator) lines.push(`Facilitator: ${state.facilitator}`);
+    if(state.attendees) lines.push(`Attendees: ${state.attendees}`);
+    lines.push('', 'PURPOSE', state.purpose||'Purpose not yet defined.');
+    lines.push('', 'OUTCOMES');
+    const outcomes=(state.outcomes||[]).filter(x=>String(x).trim());
+    if(outcomes.length) outcomes.forEach(x=>lines.push(`- ${x}`)); else lines.push('- No outcomes added yet.');
+    lines.push('', 'AGENDA');
+    if(rows.length) rows.forEach((row,i)=>{ lines.push(`${i+1}. ${row.time} | ${row.type} | ${row.title} | Owner: ${row.owner}`); if(row.notes) lines.push(`   Prep/notes: ${row.notes}`); }); else lines.push('- No agenda items added yet.');
+    lines.push('', 'CLOSE');
+    const c=state.close||{};
+    if(c.decisions!==false) lines.push('- Confirm decisions made');
+    if(c.actions!==false) lines.push('- Confirm action items + owners');
+    if(c.parkingLot!==false) lines.push('- Review questions / parking lot');
+    if(c.nextCheckpoint!==false) lines.push('- Confirm next meeting / checkpoint');
+    lines.push(`- Reserved close time: ${sanitizeMinutes(c.minutes??5)} minutes`);
+    return lines.join('\n');
+  }
+  function buildEmailSubject(state){ return `Agenda: ${state.title||'Meeting'}${state.date?' — '+state.date:''}`; }
+  function buildMailto(state){
+    const subject=buildEmailSubject(state), body=buildPlainTextAgenda(state);
+    const url=`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return {url,isLong:url.length>1800};
+  }
+  window.ALCIVIA_AGENDA_CORE={parseMinutes,meetingDuration,agendaTotal,timeStatus,sanitizeMinutes,makeInitialState,addOutcome,updateOutcome,deleteOutcome,addItem,updateItem,deleteItem,moveItem,duplicateItem,buildCoachFindings,buildAgendaRows,buildPlainTextAgenda,buildEmailSubject,buildMailto,dateLabel,formatClock};
+})();
+
+/* CORE_END */
+</script>
+<script>
+(()=>{
+  const core=window.ALCIVIA_AGENDA_CORE;
+  const $=id=>document.getElementById(id);
+  let state=core.makeInitialState();
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+  const meetingTypePrompts={'Team Check-In':'Align on priorities, blockers, and ownership for the next work period.','Project Update':'Review progress, surface risks, and agree on the next project actions.','Decision Meeting':'Make a specific decision with the right information and decision owners present.','Planning Session':'Turn goals into priorities, owners, and next steps.','Customer / Partner Meeting':'Align on needs, decisions, and next actions with the customer or partner.','One-on-One':'Create focused space for priorities, feedback, support, and next steps.'};
+  function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove('show'),1800)}
+  function scrollToId(id){$(id)?.scrollIntoView({behavior:'smooth',block:'start'})}
+  function syncBasics(){state={...state,title:$('meetingTitle').value,date:$('meetingDate').value,startTime:$('startTime').value,endTime:$('endTime').value,location:$('location').value,facilitator:$('facilitator').value,attendees:$('attendees').value,meetingType:$('meetingType').value,purpose:$('purpose').value,close:{decisions:$('closeDecisions').checked,actions:$('closeActions').checked,parkingLot:$('closeParking').checked,nextCheckpoint:$('closeNext').checked,minutes:core.sanitizeMinutes($('closeMinutes').value)}};renderDerived()}
+  function renderOutcomes(){const root=$('outcomes');root.innerHTML='';(state.outcomes||[]).forEach((text,index)=>{const row=document.createElement('div');row.className='outcome-row';row.innerHTML=`<input aria-label="Outcome ${index+1}" value="${esc(text)}"><button type="button" class="btn danger mini">Delete</button>`;const input=row.querySelector('input');input.addEventListener('input',()=>{state=core.updateOutcome(state,index,input.value);renderDerived()});row.querySelector('button').addEventListener('click',()=>{state=core.deleteOutcome(state,index);renderOutcomes();renderDerived()});root.appendChild(row)})}
+  function itemMarkup(item,index){return `<div class="item-top"><div class="field"><label>Topic / agenda item title</label><input data-key="title" value="${esc(item.title)}" placeholder="Example: Decide launch date"></div><div class="field"><label>Type</label><select data-key="type"><option value="Inform" ${item.type==='Inform'?'selected':''}>Inform</option><option value="Discuss" ${item.type==='Discuss'?'selected':''}>Discuss</option><option value="Decide" ${item.type==='Decide'?'selected':''}>Decide</option><option value="Work" ${item.type==='Work'?'selected':''}>Work</option></select></div><div class="field"><label>Owner</label><input data-key="owner" value="${esc(item.owner)}" placeholder="Name"></div><div class="field"><label>Minutes</label><input data-key="minutes" type="number" min="1" value="${core.sanitizeMinutes(item.minutes)}"></div></div><div class="field item-notes"><label>Preparation / notes <span class="helper">(optional)</span></label><textarea data-key="notes" placeholder="What should participants prepare or know?">${esc(item.notes)}</textarea></div><div class="item-actions"><button class="btn ghost mini" type="button" data-action="up" aria-label="Move up item ${index+1}">↑ Move up</button><button class="btn ghost mini" type="button" data-action="down" aria-label="Move down item ${index+1}">↓ Move down</button><button class="btn ghost mini" type="button" data-action="duplicate">Duplicate</button><button class="btn danger mini" type="button" data-action="delete">Delete</button></div>`}
+  function renderItems(){const root=$('items');root.innerHTML='';if(!state.items.length)root.innerHTML='<div class="helper">No items yet. Start with the most important thing the meeting needs to accomplish.</div>';state.items.forEach((item,index)=>{const el=document.createElement('div');el.className='agenda-item';el.dataset.id=item.id;el.innerHTML=itemMarkup(item,index);el.querySelectorAll('[data-key]').forEach(ctrl=>ctrl.addEventListener('input',()=>{const key=ctrl.dataset.key;state=core.updateItem(state,item.id,{[key]:key==='minutes'?core.sanitizeMinutes(ctrl.value):ctrl.value});renderDerived()}));el.querySelectorAll('[data-action]').forEach(btn=>btn.addEventListener('click',()=>{const action=btn.dataset.action;if(action==='delete')state=core.deleteItem(state,item.id);if(action==='up'||action==='down')state=core.moveItem(state,item.id,action);if(action==='duplicate')state=core.duplicateItem(state,item.id).state;renderItems();renderDerived()}));root.appendChild(el)})}
+  function renderSummary(){const duration=core.meetingDuration(state.startTime,state.endTime);const total=core.agendaTotal(state.items,state.close.minutes);$('durationMetric').textContent=duration===null?'—':duration+' min';$('agendaMetric').textContent=total+' min';$('itemMetric').textContent=state.items.length;const status=core.timeStatus(total,duration);$('timeAlert').className='time-alert '+status.kind;$('timeAlert').textContent=duration===null?'End time must be later than start time.':status.message}
+  function renderCoach(){const root=$('coach');root.innerHTML='';core.buildCoachFindings(state).forEach(f=>{const el=document.createElement('div');el.className='coach-item '+f.kind;el.innerHTML=`<strong>${esc(f.title)}</strong><span>${esc(f.body)}</span>`;root.appendChild(el)})}
+  function renderPreview(){$('previewTitle').textContent=state.title||'Meeting Agenda';const meta=[core.dateLabel(state.date),state.startTime&&state.endTime?`${state.startTime}–${state.endTime}`:state.startTime||'Time not set',state.location||'',state.facilitator?'Facilitator: '+state.facilitator:'',state.attendees?'Attendees: '+state.attendees:''].filter(Boolean);$('previewMeta').innerHTML=meta.map(x=>`<span>${esc(x)}</span>`).join('');$('previewPurpose').textContent=state.purpose||'Purpose not yet defined.';$('previewPurpose').className=state.purpose?'':'empty';const outs=(state.outcomes||[]).filter(x=>String(x).trim());$('previewOutcomes').innerHTML=outs.length?outs.map(x=>`<li>${esc(x)}</li>`).join(''):'<li class="empty">No outcomes added yet.</li>';const rows=core.buildAgendaRows(state);$('previewTable').innerHTML='<div class="agenda-row head"><div>Time</div><div>Type</div><div>Topic</div><div>Owner</div></div>'+(rows.length?rows.map(r=>`<div class="agenda-row"><div data-label="Time">${esc(r.time)}</div><div data-label="Type">${esc(r.type)}</div><div data-label="Topic"><strong>${esc(r.title)}</strong>${r.notes?`<div class="helper">${esc(r.notes)}</div>`:''}</div><div data-label="Owner">${esc(r.owner)}</div></div>`).join(''):'<div class="agenda-row"><div class="empty" style="grid-column:1/-1">No agenda items added yet.</div></div>');const c=state.close;const close=[];if(c.decisions)close.push('Confirm decisions made');if(c.actions)close.push('Confirm action items + owners');if(c.parkingLot)close.push('Review questions / parking lot');if(c.nextCheckpoint)close.push('Confirm next meeting / checkpoint');close.push(`Reserved close time: ${core.sanitizeMinutes(c.minutes)} minutes`);$('previewClose').innerHTML=close.map(x=>`<li>${esc(x)}</li>`).join('')}
+  function renderDerived(){renderSummary();renderCoach();renderPreview();const filled=[state.title,state.purpose,state.outcomes.length,state.items.length].filter(Boolean).length;$('progressBar').style.width=(12+filled*18)+'%'}
+  async function copyAgendaText(text){if(navigator.clipboard&&navigator.clipboard.writeText){try{await navigator.clipboard.writeText(text);return {copied:true,fallback:false}}catch(e){}}const fallback=$('copyFallback');fallback.hidden=false;const t=fallback.querySelector('textarea');t.value=text;t.focus();t.select();return {copied:false,fallback:true}}
+  $('startBuild').addEventListener('click',()=>scrollToId('builder'));$('teachFirst').addEventListener('click',()=>scrollToId('learn'));
+  $('challenge').querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{$('challenge').querySelectorAll('button').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');$('challengeFeedback').textContent=btn.dataset.choice==='strong'?'Exactly. It names the action, the decision, the timebox, and the owner. Participants know what “done” looks like.':btn.dataset.choice==='better'?'Better than a one-word topic, but it still does not say what the group needs to accomplish or who owns it.':'A topic alone gives participants almost no expectation for what should happen.'}));
+  ['meetingTitle','meetingDate','startTime','endTime','location','facilitator','attendees','meetingType','purpose','closeDecisions','closeActions','closeParking','closeNext','closeMinutes'].forEach(id=>$(id).addEventListener(id.startsWith('close')&&id!=='closeMinutes'?'change':'input',syncBasics));$('meetingType').addEventListener('change',syncBasics);
+  $('meetingTypeChips').querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{const type=btn.dataset.meetingType;$('meetingType').value=type;state={...state,meetingType:type};$('meetingTypeChips').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===btn));const prompt=meetingTypePrompts[type]||'';$('meetingTypePrompt').textContent=prompt;$('purpose').placeholder=prompt||'Why does this meeting need to happen?';renderDerived()}));
+  $('purposeChips').querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{const value=btn.textContent.trim();$('purpose').value=state.purpose?state.purpose+'; '+value:value;syncBasics();btn.classList.add('active')}));
+  $('addOutcome').addEventListener('click',()=>{if(state.outcomes.length>=5){toast('Up to five outcomes keeps the agenda focused.');return}state=core.addOutcome(state,'');renderOutcomes();renderDerived();const inputs=$('outcomes').querySelectorAll('input');inputs[inputs.length-1]?.focus()});
+  $('addItem').addEventListener('click',()=>{state=core.addItem(state,{title:'',type:'Discuss',owner:'',minutes:10,notes:''}).state;renderItems();renderDerived();const cards=$('items').querySelectorAll('.agenda-item');cards[cards.length-1]?.querySelector('input')?.focus()});
+  $('previewAgenda').addEventListener('click',()=>{syncBasics();scrollToId('preview')});$('editAgenda').addEventListener('click',()=>scrollToId('builder'));
+  $('printAgenda').addEventListener('click',()=>window.print());$('copyAgenda').addEventListener('click',async()=>{const result=await copyAgendaText(core.buildPlainTextAgenda(state));if(result.copied)toast('Agenda copied')});$('closeCopyFallback').addEventListener('click',()=>$('copyFallback').hidden=true);$('copyFallback').addEventListener('click',e=>{if(e.target===$('copyFallback'))$('copyFallback').hidden=true});
+  $('emailAgenda').addEventListener('click',()=>{const result=core.buildMailto(state);if(result.isLong){$('emailWarning').classList.remove('hide');scrollToId('emailWarning');return}window.location.href=result.url});
+  $('newAgenda').addEventListener('click',()=>{if(!window.confirm('Start a new agenda? This clears the current meeting in this page.'))return;state=core.makeInitialState();['meetingTitle','meetingDate','location','facilitator','attendees','purpose'].forEach(id=>$(id).value='');$('meetingType').value='';$('startTime').value='09:00';$('endTime').value='10:00';$('closeDecisions').checked=$('closeActions').checked=$('closeParking').checked=$('closeNext').checked=true;$('closeMinutes').value='5';renderOutcomes();renderItems();renderDerived();scrollToId('builder')});
+  renderOutcomes();renderItems();renderDerived();
+})();
+</script>
+
+<script>
+(function(){
+  let lastHeight=0, resizeTimer=null, isFullscreen=false;
+  function getPageHeight(){
+    const shell=document.querySelector('.shell');
+    return Math.ceil(shell ? shell.getBoundingClientRect().height : document.body.scrollHeight);
+  }
+  function sendHeight(force=false){
+    requestAnimationFrame(function(){
+      const height=getPageHeight();
+      if(!force && Math.abs(height-lastHeight)<3) return;
+      lastHeight=height;
+      window.parent.postMessage({type:'alcivia-simulator-height',height:height},'*');
+    });
+  }
+  function scheduleHeight(){ clearTimeout(resizeTimer); resizeTimer=setTimeout(function(){sendHeight(false)},80); }
+  window.addEventListener('load',function(){sendHeight(true);setTimeout(()=>sendHeight(true),250);setTimeout(()=>sendHeight(true),800)});
+  if('ResizeObserver' in window){ const ro=new ResizeObserver(scheduleHeight); ro.observe(document.body); const shell=document.querySelector('.shell'); if(shell)ro.observe(shell); }
+  if('MutationObserver' in window){ const mo=new MutationObserver(scheduleHeight); mo.observe(document.body,{childList:true,subtree:true,attributes:true}); }
+  document.addEventListener('input',scheduleHeight); document.addEventListener('change',scheduleHeight); document.addEventListener('click',function(){scheduleHeight();setTimeout(()=>sendHeight(false),260)}); window.addEventListener('resize',scheduleHeight);
+  window.addEventListener('message',function(event){
+    if(!event.data) return;
+    if(event.data.type==='alcivia-request-height') sendHeight(true);
+    if(event.data.type==='alcivia-fullscreen-state'){
+      isFullscreen=!!event.data.active;
+      const btn=document.getElementById('fullscreenBtn');
+      if(btn){btn.textContent=isFullscreen?'↙ Exit Full Screen':'⛶ Full Screen';btn.setAttribute('aria-label',isFullscreen?'Exit full screen':'Open Agenda Builder full screen');}
+      if(!isFullscreen)setTimeout(()=>sendHeight(true),120);
+    }
+  });
+  const btn=document.getElementById('fullscreenBtn');
+  if(btn)btn.addEventListener('click',function(){ window.parent.postMessage({type:isFullscreen?'alcivia-fullscreen-exit':'alcivia-fullscreen-request'},'*'); });
+})();
+</script>
+
+</body>
+</html>
